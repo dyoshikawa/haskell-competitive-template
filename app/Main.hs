@@ -8,7 +8,7 @@ main = do
   input2 <- getLine
   input3 <- getLine
   let num1 = read input1 :: Int
-  let num2 = read (splitOn " ")
+  let nums = map (read (splitOn " " input2))
   let sum = num1 + num2
   let result = show sum
   putStrLn result
