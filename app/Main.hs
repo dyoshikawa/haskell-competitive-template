@@ -2,13 +2,15 @@ import Control.Monad
 import Control.Applicative
 import Data.List.Split
 
+result :: Int -> String
+result n =
+  case even n of
+    True -> "Even"
+    False -> "Odd"
+
 main :: IO ()
 main = do
-  input1 <- getLine
-  input2 <- getLine
-  input3 <- getLine
-  let num1 = read input1 :: Int
-  let nums = map read (splitOn " " input2) :: [Int]
-  let sum = num1 + (head nums) + (head $ tail nums)
-  let result = show sum
-  putStrLn (result ++ " " ++ input3)
+  input <- getLine
+  let nums = map read (splitOn " " input) :: [Int]
+  let prod = (head nums) * (last nums)
+  putStrLn $ result prod
