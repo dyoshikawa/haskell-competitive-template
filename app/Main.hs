@@ -1,18 +1,14 @@
 import Control.Monad
 import Control.Applicative
-import Data.List
+import Data.List.Split
 
 main :: IO ()
 main = do
-  n <- readLn
-  (w:ws) <- replicateM n getLine
-  putStrLn $ case check [w] ws True of
-    Nothing -> "DRAW"
-    Just True -> "WIN"
-    Just False -> "LOSE"
-
-check _ [] _ = Nothing
-check dict@(la:_) (w:ws) b
-  | last la /= head w = Just b
-  | w `elem` dict = Just b
-  | otherwise = check (w:dict) ws (not b)
+  input1 <- getLine
+  input2 <- getLine
+  input3 <- getLine
+  let num1 = read input1 :: Int
+  let num2 = read (splitOn " ")
+  let sum = num1 + num2
+  let result = show sum
+  putStrLn result
