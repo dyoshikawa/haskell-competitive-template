@@ -11,4 +11,4 @@ main = do
   let nums = map read (splitOn " " input2) :: [Int]
   let sum = num1 + (head nums) + (head $ tail nums)
   let result = show sum
-  putStrLn result
+  putStrLn (result ++ " " ++ input3)
